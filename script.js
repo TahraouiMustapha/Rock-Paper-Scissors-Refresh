@@ -26,21 +26,34 @@ function isWin(humanChoice, computerChoice) {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    if(humanChoice == computerChoice) {
-        console.log('draw');
-    } else if ( isWin(humanChoice, computerChoice) ) {
-        humanScore++;
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+function playGame() {
+    const playRound = (humanChoice, computerChoice) => {
+        if(humanChoice == computerChoice) {
+            console.log('draw');
+        } else if ( isWin(humanChoice, computerChoice) ) {
+            humanScore++;
+            console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        } else {
+            computerScore++;
+            console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        }
+    }
+ 
+    for(let i=0; i < 5; i++) {
+        const computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    console.log('---------------------------------------------------\n Final Results')
+    if(humanScore == computerScore) {
+        console.log('draw in the Game!');
+    } else if( humanScore > computerScore) {
+        console.log('You Win the Game!');
     } else {
-        computerScore++;
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        console.log('You Lose the Game!');
     }
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-
-playRound(humanSelection, computerSelection);
-
+playGame(); 
 
