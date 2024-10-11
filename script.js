@@ -15,12 +15,32 @@ function getHumanChoice() {
     }
     return humanChoice.toLowerCase();
 }
-
-const humanSelection = getComputerChoice();
-const computerSelection = getHumanChoice();
-
-function playRound(humanChoice, computerChoice) {
-
+// function to check if the human is the winner
+function isWin(humanChoice, computerChoice) {
+    if( humanChoice == 'rock' && computerChoice.toLowerCase() == 'scissors'
+    || (humanChoice == 'scissors' && computerChoice.toLowerCase() == 'paper')
+    || (humanChoice == 'paper' && computerChoice.toLowerCase() == 'rock')) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice == computerChoice) {
+        console.log('draw');
+    } else if ( isWin(humanChoice, computerChoice) ) {
+        humanScore++;
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+    } else {
+        computerScore++;
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+    }
+}
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
 playRound(humanSelection, computerSelection);
+
+
