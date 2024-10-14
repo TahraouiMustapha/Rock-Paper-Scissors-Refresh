@@ -23,6 +23,20 @@
             padding: 16px 32px;
             border-radius: 16px;
         }
+        .running-score {
+            display: flex;
+            gap: 80px;
+        }
+
+        .score {
+            font-size: 100px;
+            text-align:center ;
+        }
+
+        .score + p {
+            font-size: 32px;
+        }
+
     </style>
 </head>
 <body>
@@ -35,7 +49,17 @@
     <div class="result">
         You Win!
     </div>
-    
+    <div class="running-score">
+        <div>
+            <div class="human score"></div>
+            <p>You</p>
+        </div>
+        <div>
+            <div class="computer score"></div>
+            <p>Computer</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
