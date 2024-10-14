@@ -6,6 +6,10 @@ function getComputerChoice () {
     return choices[randomIndex] ;
 }
 
+function displayResult (resultOfRound) {
+    const resultDiv = document.querySelector('.result');
+    resultDiv.textContent = resultOfRound;
+}
 // function to check if the human is the winner
 function isWin(humanChoice, computerChoice) {
     if( humanChoice == 'rock' && computerChoice.toLowerCase() == 'scissors'
@@ -19,13 +23,13 @@ function isWin(humanChoice, computerChoice) {
 
 function playRound (humanChoice, computerChoice) {
     if(humanChoice == computerChoice) {
-        console.log('draw');
+        displayResult('draw');
     } else if ( isWin(humanChoice, computerChoice) ) {
         humanScore++;
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        displayResult(`You Win! ${humanChoice} beats ${computerChoice}`);
     } else {
         computerScore++;
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        displayResult(`You Lose! ${computerChoice} beats ${humanChoice}`);
     }
 }
 

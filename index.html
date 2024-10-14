@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors | Refresh</title>
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+            gap: 40px;
+        }
+
+        .result {
+            padding: 16px 32px;
+            border-radius: 16px;
+        }
+    </style>
 </head>
 <body>
     <h1>Choose an answer</h1>
@@ -11,6 +31,9 @@
         <button onclick="playRound('rock', getComputerChoice())">Rock</button>
         <button onclick="playRound('rock', getComputerChoice())">Paper</button>
         <button onclick="playRound('rock', getComputerChoice())">Scissors</button>
+    </div>
+    <div class="result">
+        You Win!
     </div>
     
     <script src="script.js"></script>
