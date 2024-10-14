@@ -6,15 +6,6 @@ function getComputerChoice () {
     return choices[randomIndex] ;
 }
 
-function getHumanChoice() {
-    let humanChoice = '';
-    while( humanChoice.toLowerCase()!== choices[0] &&
-           humanChoice.toLowerCase()!== choices[1] &&   
-           humanChoice.toLowerCase()!== choices[2] ) {
-            humanChoice = prompt("enter your choice\n1.rock\n2.paper\n3.scissors", "rock");
-    }
-    return humanChoice.toLowerCase();
-}
 // function to check if the human is the winner
 function isWin(humanChoice, computerChoice) {
     if( humanChoice == 'rock' && computerChoice.toLowerCase() == 'scissors'
@@ -26,34 +17,16 @@ function isWin(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    const playRound = (humanChoice, computerChoice) => {
-        if(humanChoice == computerChoice) {
-            console.log('draw');
-        } else if ( isWin(humanChoice, computerChoice) ) {
-            humanScore++;
-            console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-        } else {
-            computerScore++;
-            console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-        }
-    }
- 
-    for(let i=0; i < 5; i++) {
-        const computerSelection = getComputerChoice();
-        const humanSelection = getHumanChoice();
-        playRound(humanSelection, computerSelection);
-    }
-
-    console.log('---------------------------------------------------\n Final Results')
-    if(humanScore == computerScore) {
-        console.log('draw in the Game!');
-    } else if( humanScore > computerScore) {
-        console.log('You Win the Game!');
+function playRound (humanChoice, computerChoice) {
+    if(humanChoice == computerChoice) {
+        console.log('draw');
+    } else if ( isWin(humanChoice, computerChoice) ) {
+        humanScore++;
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
     } else {
-        console.log('You Lose the Game!');
+        computerScore++;
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
     }
 }
 
-playGame(); 
 
